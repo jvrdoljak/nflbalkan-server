@@ -1,9 +1,31 @@
-type Post {
+type ImageResult {
+    src: String!
+    alt: String!
+}
+
+input ImageInput {
+    src: String!
+    alt: String!
+}
+
+type PostResult {
     id: Int!
     title: String!
     text: String!
+    image: ImageResult
+}
+
+input PostInput {
+    id: Int!
+    title: String!
+    text: String!
+    image: ImageInput
 }
 
 type Query { 
-    post(id: Int!): Post!
+    post(id: Int!): PostResult!
+}
+
+type Mutation {
+    createPost(post: PostInput!): PostResult!
 }
