@@ -1,4 +1,3 @@
-
 /*
  * -------------------------------------------------------
  * THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
@@ -25,18 +24,31 @@ export class ImageResult {
     alt: string;
 }
 
-export class PostResult {
-    __typename?: 'PostResult';
+export class Post {
+    __typename?: 'Post';
     id: number;
+    slug: string;
     title: string;
     text: string;
     image?: Nullable<ImageResult>;
 }
 
+export class PostResult {
+    __typename?: 'PostResult';
+    post?: Nullable<Post>;
+}
+
+export class PostResults {
+    __typename?: 'PostResults';
+    posts: Post[];
+}
+
 export abstract class IQuery {
     __typename?: 'IQuery';
 
-    abstract post(id: number): PostResult | Promise<PostResult>;
+    abstract getPost(slug: string): PostResult | Promise<PostResult>;
+
+    abstract getPosts(): PostResults | Promise<PostResults>;
 }
 
 export abstract class IMutation {

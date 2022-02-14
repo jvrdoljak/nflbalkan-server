@@ -8,11 +8,20 @@ input ImageInput {
     alt: String!
 }
 
-type PostResult {
+type Post {
     id: Int!
+    slug: String!
     title: String!
     text: String!
     image: ImageResult
+}
+
+type PostResult {
+    post: Post
+}
+
+type PostResults {
+    posts: [Post!]!
 }
 
 input PostInput {
@@ -23,7 +32,8 @@ input PostInput {
 }
 
 type Query { 
-    post(id: Int!): PostResult!
+    getPost(slug: String!): PostResult!
+    getPosts: PostResults!
 }
 
 type Mutation {

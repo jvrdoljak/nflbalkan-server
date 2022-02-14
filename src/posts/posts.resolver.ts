@@ -4,8 +4,36 @@ import { PostInput } from 'src/graphql.schema';
 @Resolver('Posts')
 export class PostsResolver {
   @Query()
-  async post(@Args('id') id: number) {
-    return { id: id, text: 'Test', title: 'Test', image: { src: '', alt: '' } };
+  async getPost(@Args('slug') slug: string) {
+    const post = {
+      id: 1,
+      slug: slug,
+      text: 'Lorem ipsum',
+      title: 'Title',
+    };
+
+    return { post };
+  }
+
+  @Query()
+  async getPosts() {
+    const posts = [
+      {
+        id: 1,
+        slug: 'aaa',
+        text: 'Lorem ipsum',
+        title: 'Title',
+        image: { src: '', alt: '' },
+      },
+      {
+        id: 2,
+        slug: 'aaaa',
+        text: 'Lorem ipsum',
+        title: 'Title',
+        image: { src: '', alt: '' },
+      },
+    ];
+    return { posts };
   }
 
   @Mutation()
