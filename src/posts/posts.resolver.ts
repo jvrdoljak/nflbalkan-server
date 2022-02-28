@@ -40,4 +40,9 @@ export class PostsResolver {
   async createPost(@Args('post') post: PostInput) {
     return post;
   }
+
+  @Mutation()
+  async editPost(@Args('post') post: PostInput) {
+    return { post };
+  }
 }

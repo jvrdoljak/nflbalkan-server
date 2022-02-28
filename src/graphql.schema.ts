@@ -1,3 +1,4 @@
+
 /*
  * -------------------------------------------------------
  * THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
@@ -55,6 +56,8 @@ export abstract class IMutation {
     __typename?: 'IMutation';
 
     abstract createPost(post: PostInput): PostResult | Promise<PostResult>;
+
+    abstract editPost(post: PostInput): PostResult | Promise<PostResult>;
 }
 
 type Nullable<T> = T | null;

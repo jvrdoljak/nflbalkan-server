@@ -28,6 +28,7 @@ input PostInput {
     id: Int!
     title: String!
     text: String!
+    slug: String!
     image: ImageInput
 }
 
@@ -38,4 +39,5 @@ type Query {
 
 type Mutation {
     createPost(post: PostInput!): PostResult!
+    editPost(post: PostInput!): PostResult!
 }
