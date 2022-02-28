@@ -27,9 +27,9 @@ export class PostsResolver {
       },
       {
         id: 2,
-        slug: 'aaaa',
-        text: 'Lorem ipsum',
-        title: 'Title',
+        slug: 'bbbbb',
+        text: 'Lorem ipsums',
+        title: 'Naslov',
         image: { src: '', alt: '' },
       },
     ];
