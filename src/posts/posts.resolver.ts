@@ -1,8 +1,11 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { PostInput } from 'src/graphql.schema';
+import { PostsService } from './posts.service';
 
 @Resolver('Posts')
 export class PostsResolver {
+  constructor(private readonly postsService: PostsService) {}
+
   @Query()
   async getPost(@Args('slug') slug: string) {
     const post = {
@@ -38,7 +41,10 @@ export class PostsResolver {
 
   @Mutation()
   async createPost(@Args('post') post: PostInput) {
-    return post;
+    console.log({ post });
+    const newPost = await this.postsService.create(post);
+    console.log({ newPost });
+    return newPost;
   }
 
   @Mutation()
